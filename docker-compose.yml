@@ -1,0 +1,29 @@
+version: '3'
+services:
+  app:
+    env_file: .env
+    image: 'jc21/nginx-proxy-manager:latest'
+    environment:
+      # These are the settings to access your db
+      DB_MYSQL_HOST: $DB_MYSQL_HOST
+      DB_MYSQL_PORT: $DB_MYSQL_PORT
+      DB_MYSQL_USER: $DB_MYSQL_USER
+      DB_MYSQL_PASSWORD: $DB_MYSQL_PASSWORD
+      DB_MYSQL_NAME: $DB_MYSQL_NAME
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+  db:
+    env_file: .env
+    image: jc21/mariadb-aria
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_MYSQL_PASSWORD
+      MYSQL_DATABASE: $DB_MYSQL_NAME
+      MYSQL_USER: $DB_MYSQL_USER
+      MYSQL_PASSWORD: $DB_MYSQL_PASSWORD
+    volumes:
+      - ./data/mysql:/var/lib/mysql

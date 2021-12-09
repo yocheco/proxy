@@ -1,0 +1,2 @@
+2021/12/09 23:46:51 [alert] 302#302: 1024 worker_connections are not enough
+2021/12/09 23:46:51 [error] 301#301: *1514 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost-nginx-proxy-manager, request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:80/favicon.ico", host: "localhost", referrer: "http://localhost/"
