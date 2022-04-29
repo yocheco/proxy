@@ -10,6 +10,11 @@ copy demo.env .env
 
 ```
 
+### accses
+port: 81
+Email:    admin@example.com
+Password: changeme
+
 ## TODO List
 
 ### Tareas pendientes
