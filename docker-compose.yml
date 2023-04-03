@@ -40,8 +40,8 @@ services:
     ports:
         - '7880:7880'
     environment:
-      - PUID=0
-      - PGID=0
+      - PUID=100
+      - PGID=100
       - TZ=America/Mexico_City         
       - SKIP_ARCHIVED_LOGS=False #optional
       - DEBUG=False #optional
