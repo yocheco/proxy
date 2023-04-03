@@ -40,17 +40,17 @@ services:
     ports:
         - '7880:7880'
     environment:
-      - PUID=100
-      - PGID=100
+      - PUID=0
+      - PGID=0
       - TZ=America/Mexico_City         
       - SKIP_ARCHIVED_LOGS=False #optional
       - DEBUG=False #optional
-      - BASIC_AUTH=False #optional
+      - BASIC_AUTH=True #optional
       - BASIC_AUTH_USERNAME=user #optional
       - BASIC_AUTH_PASSWORD=password #optional   
       - EXCLUDE_IPS=127.0.0.1 #optional - comma delimited 
       - LOG_TYPE=NPM #optional - more information below
     volumes:
-      - /data/logs:/opt/log
+      - ./data/logs:/opt/log
     depends_on:
       - app
