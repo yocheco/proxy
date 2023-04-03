@@ -32,3 +32,23 @@ services:
       MYSQL_PASSWORD: $DB_MYSQL_PASSWORD
     volumes:
       - ./data/mysql:/var/lib/mysql
+  
+  goaccess:
+    image: 'xavierh/goaccess-for-nginxproxymanager:latest'
+    container_name: goaccess
+    restart: always
+    ports:
+        - '7880:7880'
+    environment:
+      - TZ=America/Mexico_City         
+      - SKIP_ARCHIVED_LOGS=False #optional
+      - DEBUG=False #optional
+      - BASIC_AUTH=False #optional
+      - BASIC_AUTH_USERNAME=user #optional
+      - BASIC_AUTH_PASSWORD=password #optional   
+      - EXCLUDE_IPS=127.0.0.1 #optional - comma delimited 
+      - LOG_TYPE=NPM #optional - more information below
+    volumes:
+      - /data/logs:/opt/log
+    depends_on:
+      - app
