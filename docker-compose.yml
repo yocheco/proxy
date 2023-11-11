@@ -31,7 +31,7 @@ services:
       MYSQL_USER: $DB_MYSQL_USER
       MYSQL_PASSWORD: $DB_MYSQL_PASSWORD
     volumes:
-      - ./data/mysql:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
   
   goaccess:
     image: 'xavierh/goaccess-for-nginxproxymanager:latest'
