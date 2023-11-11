@@ -17,6 +17,17 @@ Password: changeme
 
 ## TODO List
 
+https://www.reddit.com/r/nginxproxymanager/comments/12ilet7/bad_gateway_on_nginxproxymanager_running_in_docker/
+In case anyone else comes across this, I was able to fix it by doing the following in the database container:
+
+
+```
+cd /var/lib/mysql
+chown -R mysql:mysql npm
+exit
+
+```
+
 ### Tareas pendientes
 
 ```
